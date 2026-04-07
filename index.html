@@ -16,11 +16,11 @@
                 extend: {
                     "colors": {
                         /* Soft Pastel Theme Palette */
-                        "primary": "#E893A4", /* Dusty Pastel Pink */
-                        "primary-dim": "#D67A8C",
+                        "primary": "#ac2d5e", /* Original Vibrant Pink */
+                        "primary-dim": "#9c1f52",
                         "on-primary": "#FFFFFF",
-                        "primary-container": "#FDE2E8",
-                        "on-primary-container": "#6B3243",
+                        "primary-container": "#fd6c9c",
+                        "on-primary-container": "#47001f",
                         
                         "secondary": "#8FB4C4", /* Dusty Pastel Blue */
                         "secondary-dim": "#7A9FB0",
@@ -94,7 +94,7 @@
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 32px rgba(232, 147, 164, 0.08); /* Soft primary tint shadow */
+            box-shadow: 0 8px 32px rgba(172, 45, 94, 0.08); /* Original primary tint shadow */
         }
 
         .glass-card {
@@ -124,9 +124,11 @@
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
             will-change: transform, box-shadow;
         }
-        .smooth-hover:hover {
+        .smooth-hover:hover,
+        .smooth-hover:active,
+        .smooth-hover.is-hovered {
             transform: translateY(-10px) scale(1.02) !important;
-            box-shadow: 0 25px 50px -12px rgba(232, 147, 164, 0.2) !important;
+            box-shadow: 0 25px 50px -12px rgba(172, 45, 94, 0.2) !important;
             z-index: 10;
         }
         
@@ -134,7 +136,9 @@
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
             will-change: transform, box-shadow;
         }
-        .smooth-hover-down:hover {
+        .smooth-hover-down:hover,
+        .smooth-hover-down:active,
+        .smooth-hover-down.is-hovered {
             transform: translateY(10px) scale(0.98) !important;
             box-shadow: 0 10px 20px -5px rgba(143, 180, 196, 0.15) !important;
             z-index: 10;
@@ -154,7 +158,9 @@
         img:not(.no-cinematic) {
             transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1), filter 1.5s ease;
         }
-        img:not(.no-cinematic):hover {
+        img:not(.no-cinematic):hover,
+        img:not(.no-cinematic):active,
+        img:not(.no-cinematic).is-hovered {
             transform: scale(1.03);
             filter: brightness(1.03) contrast(1.02);
         }
@@ -536,7 +542,7 @@
                 </div>
                 <div class="relative">
                     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary-container/80 rounded-full blur-[100px]"></div>
-                    <img class="relative z-10 w-full max-w-[500px] mx-auto drop-shadow-[0_20px_50px_rgba(232,147,164,0.3)] rounded-[3rem] border-4 border-white/80 smooth-hover" data-alt="Hridaya mobile app interface showing health analytics and child wellbeing monitoring" src="https://lh3.googleusercontent.com/aida/ADBb0uhM15TKuTUJZ3pfIAb41MbwlkKidKv39NiVz4tygzWy0gIWRB7fwLUtNIhEiHUhhZsIySp5D4PS-GeTyaMm7CA8ioYihvPRWTdA0RD764iihT3BBfqhTxTb9zfevl9UaOTevOpVAA28Ui90Iyk2EyjdmXDXFcU0XnPNac3HnSEC3DC4yJwcqDNgnXKpxj3ouXCrNmAIZeKR_B0BAMzc1fxYf45AnZsaRXVW7l5Y5DPotlgwhutkA6YMGtSOgpD1i4a89CF4t5g"/>
+                    <img class="relative z-10 w-full max-w-[500px] mx-auto drop-shadow-[0_20px_50px_rgba(172,45,94,0.3)] rounded-[3rem] border-4 border-white/80 smooth-hover" data-alt="Hridaya mobile app interface showing health analytics and child wellbeing monitoring" src="https://lh3.googleusercontent.com/aida/ADBb0uhM15TKuTUJZ3pfIAb41MbwlkKidKv39NiVz4tygzWy0gIWRB7fwLUtNIhEiHUhhZsIySp5D4PS-GeTyaMm7CA8ioYihvPRWTdA0RD764iihT3BBfqhTxTb9zfevl9UaOTevOpVAA28Ui90Iyk2EyjdmXDXFcU0XnPNac3HnSEC3DC4yJwcqDNgnXKpxj3ouXCrNmAIZeKR_B0BAMzc1fxYf45AnZsaRXVW7l5Y5DPotlgwhutkA6YMGtSOgpD1i4a89CF4t5g"/>
                 </div>
             </div>
         </div>
@@ -713,6 +719,28 @@
         });
 
         elements.forEach(el => observer.observe(el));
+
+        // --- Mobile Scroll-Hover Simulation ---
+        // Automatically triggers the hover effects as elements scroll into the center of the screen on mobile
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            const mobileHoverObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-hovered');
+                    } else {
+                        entry.target.classList.remove('is-hovered');
+                    }
+                });
+            }, {
+                // Triggers when the element reaches the middle 40% of the viewport
+                rootMargin: "-30% 0px -30% 0px",
+                threshold: 0
+            });
+
+            document.querySelectorAll('.smooth-hover, .smooth-hover-down, img:not(.no-cinematic)').forEach(el => {
+                mobileHoverObserver.observe(el);
+            });
+        }
     });
 </script>
 </body>

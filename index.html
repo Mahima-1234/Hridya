@@ -174,7 +174,11 @@
 <!-- TopNavBar -->
 <header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-2xl border-b border-white/60 shadow-sm shadow-primary/5">
     <nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-        <div class="text-2xl font-black tracking-tighter text-primary font-headline">Hridaya</div>
+        <!-- Replaced text logo with an uploaded image tag -->
+        <a href="#" class="flex items-center">
+            <!-- Ensure your logo file is named logo.png and is in the same directory, or update the src path -->
+            <img src="logo.png" alt="Hridaya Logo" class="h-8 md:h-10 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/150x40/ac2d5e/ffffff?text=HRIDAYA&font=Montserrat'; this.classList.add('rounded');" />
+        </a>
         <div class="hidden md:flex items-center gap-8">
             <a class="text-primary border-b-2 border-primary pb-1 font-headline font-semibold tracking-tight" href="#">Product</a>
             <a class="text-on-surface-variant font-medium font-headline hover:text-primary transition-colors duration-300" href="#features">Features</a>
@@ -214,6 +218,17 @@
         </div>
     </section>
 
+    <!-- NEW SECTION 1: The Journey (from h1.jpg) -->
+    <section class="px-8 py-24 glass-panel my-12 mx-4 md:mx-12 rounded-[3rem] smooth-hover">
+        <div class="max-w-7xl mx-auto text-center">
+            <span class="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest uppercase text-primary glass-card rounded-full smooth-hover">A Lifelong Bond</span>
+            <h2 class="text-4xl lg:text-5xl font-bold font-headline mb-12 text-on-background">Nurturing Connection at Every Stage</h2>
+            <div class="relative rounded-[2rem] overflow-hidden shadow-xl border-4 border-white/80 bg-white/60 p-2 backdrop-blur smooth-hover-down">
+                <img alt="The journey of motherhood from pregnancy to holding an infant to encouraging a toddler to walk" class="w-full h-auto rounded-[1.5rem]" src="h1.jpg" />
+            </div>
+        </div>
+    </section>
+
     <!-- 2. Problem/Solution Section -->
     <section class="px-8 py-24 glass-panel my-12 mx-4 md:mx-12 rounded-[3rem] smooth-hover" id="science">
         <div class="max-w-7xl mx-auto">
@@ -223,6 +238,20 @@
             </div>
             <div class="relative rounded-3xl overflow-hidden shadow-xl border border-white/80 bg-white/60 backdrop-blur-md smooth-hover">
                 <img class="w-full h-auto block" data-alt="Problem and solution overview for Hridaya smart wristband showing working parents needs and AI technology solutions" src="https://lh3.googleusercontent.com/aida/ADBb0uif5Y_qtnXHr9gvFfhNZ3H7v8js-VGk0B-RQsm8cTgl8nGTUw6EOWkxAcElLsR3WEKnHReDxA9DiuVR77F5PngOivkETiPa7hduFKrRhegSD_hh47J7unCTC9XWXAkOzxK7CdMobM15X1Nq0vEnoQhNkDYVb9w-7B3wTDhgLcWEujpI7ldmhSmuoI5hGv_Jxn0Uswkly4I-y6vMRK1GbS0dApe1AfcfLrXUHJ0S-Df6MSWA1H9mi-jvz28_s8lkjZ9ZjGG5Qyg"/>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION 2: The Data and Gap (from data1.jpg) -->
+    <section class="px-8 py-24 my-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest uppercase text-secondary glass-card rounded-full">The Data Behind the Need</span>
+                <h2 class="text-4xl lg:text-5xl font-black font-headline mb-4 text-on-background">The Modern Parenting Paradox</h2>
+                <p class="text-on-surface-variant max-w-2xl mx-auto text-lg">Understanding the critical window of the first 1000 days amidst changing global lifestyles and the growing gap in early emotional bonding.</p>
+            </div>
+            <div class="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/80 smooth-hover">
+                <img alt="Hridaya: A Thread of Baby Wellbeing infographic data showing workforce shift, childcare centers growth, and critical window impacts" class="w-full h-auto block" src="data1.jpg" />
             </div>
         </div>
     </section>
@@ -446,6 +475,22 @@
         </div>
     </section>
 
+    <!-- NEW SECTION 3: Future Wearable Layered Design (from future enhancements.jpg) -->
+    <section class="px-8 py-24 glass-panel my-12 mx-4 md:mx-12 rounded-[3rem] smooth-hover">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
+                <div class="md:w-1/2">
+                    <span class="inline-block px-4 py-1.5 mb-4 text-sm font-bold tracking-widest uppercase text-tertiary glass-card rounded-full">Next-Gen Tech</span>
+                    <h2 class="text-4xl lg:text-5xl font-bold font-headline mb-4 text-on-background">Smart Integrated System</h2>
+                    <p class="text-lg text-on-surface-variant font-body">An inside look at our layered intelligence architecture. By placing the central chip as the brain surrounded by ultra-thin sensing layers, we achieve maximum data without sacrificing softness.</p>
+                </div>
+            </div>
+            <div class="relative rounded-[2rem] overflow-hidden shadow-xl border border-white/80 bg-white/60 p-2 backdrop-blur smooth-hover">
+                <img class="w-full h-auto block rounded-[1.5rem]" alt="Future baby wearable layered design overview showing smart chip, heart rate PPG sensor, moisture sensor, and thin Li-Po battery inside soft strap" src="future%20enhancements.jpg" />
+            </div>
+        </div>
+    </section>
+
     <!-- 7. Style Options -->
     <section class="py-24 px-6">
         <div class="max-w-7xl mx-auto text-center">
@@ -627,7 +672,11 @@
             <!-- Brand Column -->
             <div class="md:col-span-12 lg:col-span-5 flex flex-col justify-between">
                 <div>
-                    <div class="text-5xl font-black text-on-background font-headline tracking-tighter mb-6 smooth-hover origin-left inline-block">Hridaya<span class="text-primary">.</span></div>
+                    <!-- Replaced text logo with an uploaded image tag -->
+                    <a href="#" class="inline-block mb-6 smooth-hover origin-left">
+                        <!-- Ensure your logo file is named logo.png and is in the same directory, or update the src path -->
+                        <img src="logo.png" alt="Hridaya Logo" class="h-14 md:h-16 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/200x60/ac2d5e/ffffff?text=HRIDAYA&font=Montserrat'; this.classList.add('rounded');" />
+                    </a>
                     <p class="text-on-surface-variant max-w-sm text-lg font-body leading-relaxed mb-8">
                         A mother's touch, digitally reimagined. Protecting the next generation with empathetic, non-invasive technology.
                     </p>

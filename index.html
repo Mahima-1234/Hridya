@@ -4,6 +4,9 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Hridaya | The Digital Cocoon</title>
+    <!-- Favicon Added -->
+    <link rel="icon" href="logo.png" type="image/png">
+    
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -16,30 +19,30 @@
                 extend: {
                     "colors": {
                         /* Soft Pastel Theme Palette */
-                        "primary": "#ac2d5e", /* Original Vibrant Pink */
+                        "primary": "#ac2d5e", 
                         "primary-dim": "#9c1f52",
                         "on-primary": "#FFFFFF",
                         "primary-container": "#fd6c9c",
                         "on-primary-container": "#47001f",
                         
-                        "secondary": "#8FB4C4", /* Dusty Pastel Blue */
+                        "secondary": "#8FB4C4", 
                         "secondary-dim": "#7A9FB0",
                         "on-secondary": "#FFFFFF",
                         "secondary-container": "#E2F0F5",
                         "on-secondary-container": "#2C4C5B",
                         
-                        "tertiary": "#B59CCE", /* Dusty Pastel Lilac */
+                        "tertiary": "#B59CCE", 
                         "tertiary-dim": "#A187BC",
                         "on-tertiary": "#FFFFFF",
                         "tertiary-container": "#F0E6F7",
                         "on-tertiary-container": "#4A3163",
                         
-                        "background": "#FCF9FA", /* Warm airy off-white */
+                        "background": "#FCF9FA", 
                         "on-background": "#524C4D",
                         "surface": "#FCF9FA",
-                        "on-surface": "#524C4D", /* Soft dark grey for text */
+                        "on-surface": "#524C4D", 
                         "surface-variant": "#F5EFF0",
-                        "on-surface-variant": "#857D7E", /* Muted grey-pink for subtext */
+                        "on-surface-variant": "#857D7E", 
                         
                         "outline": "#D1C7C9",
                         "outline-variant": "#E8E0E2",
@@ -71,7 +74,6 @@
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         .text-editorial { letter-spacing: -0.02em; }
         
-        /* Ultra-Soft Cinematic Pastel Background */
         .cinematic-bg {
             position: fixed;
             inset: 0;
@@ -87,14 +89,13 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Airy Glassmorphism Effect for sections */
         .glass-panel, .bg-surface, .bg-surface-container-low, .bg-surface-container, 
         .bg-surface-container-high, .bg-surface-container-lowest {
             background-color: rgba(255, 255, 255, 0.5) !important;
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 8px 32px rgba(172, 45, 94, 0.08); /* Original primary tint shadow */
+            box-shadow: 0 8px 32px rgba(172, 45, 94, 0.08);
         }
 
         .glass-card {
@@ -105,7 +106,6 @@
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
         }
 
-        /* Cinematic Reveal Animations */
         .cinematic-reveal {
             opacity: 0;
             transform: translateY(40px) scale(0.98);
@@ -119,7 +119,6 @@
         .stagger-1 { transition-delay: 150ms; }
         .stagger-2 { transition-delay: 300ms; }
         
-        /* Smooth Sliding Hover Effects */
         .smooth-hover {
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
             will-change: transform, box-shadow;
@@ -144,7 +143,6 @@
             z-index: 10;
         }
 
-        /* Continuous Floating Animation */
         @keyframes float-gentle {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-15px); }
@@ -154,7 +152,21 @@
             will-change: transform;
         }
 
-        /* Smooth Image Interactions */
+        /* Hanging Swing Animation */
+        @keyframes swing {
+            0% { transform: rotate(5deg); }
+            50% { transform: rotate(-5deg); }
+            100% { transform: rotate(5deg); }
+        }
+        .animate-swing {
+            animation: swing 6s ease-in-out infinite;
+            transform-origin: top center;
+            will-change: transform;
+        }
+        .baby-shadow {
+            filter: drop-shadow(8px 15px 12px rgba(0, 0, 0, 0.4));
+        }
+
         img:not(.no-cinematic) {
             transition: transform 1.5s cubic-bezier(0.22, 1, 0.36, 1), filter 1.5s ease;
         }
@@ -168,16 +180,13 @@
 </head>
 <body class="text-on-surface selection:bg-primary-container selection:text-on-primary-container">
 
-<!-- Cinematic Pastel Layer -->
 <div class="cinematic-bg"></div>
 
-<!-- TopNavBar -->
 <header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-2xl border-b border-white/60 shadow-sm shadow-primary/5">
-    <nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
-        <!-- Replaced text logo with an uploaded image tag -->
+    <nav class="flex justify-between items-center px-8 py-3 max-w-7xl mx-auto">
         <a href="#" class="flex items-center">
-            <!-- Increased logo size for better visibility -->
-            <img src="logo.png" alt="Hridaya Logo" class="h-20 md:h-28 lg:h-16 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/300x80/ac2d5e/ffffff?text=HRIDAYA&font=Montserrat'; this.classList.add('rounded');" />
+            <!-- Logo size increased appropriately -->
+            <img src="logo.png" alt="Hridaya Logo" class="h-16 sm:h-20 md:h-24 lg:h-20 w-auto object-contain transition-transform hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/300x80/ac2d5e/ffffff?text=HRIDAYA&font=Montserrat'; this.classList.add('rounded');" />
         </a>
         <div class="hidden md:flex items-center gap-8">
             <a class="text-primary border-b-2 border-primary pb-1 font-headline font-semibold tracking-tight" href="#">Product</a>
@@ -205,11 +214,11 @@
                     The AI-powered smart wristband for real-time baby wellbeing monitoring. Stay connected to your little one's heart, anywhere in the world.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <button class="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-xl shadow-primary/30 smooth-hover">Explore the Tech</button>
-                    <button class="glass-panel text-primary px-8 py-4 rounded-full font-bold text-lg transition-all border border-white smooth-hover-down hover:bg-white/80">Watch Science Behind</button>
+                    <button class="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-xl shadow-primary/30 smooth-hover inline-flex items-center justify-center">Explore the Tech</button>
+                    <!-- Updated to an anchor tag pointing to science.html -->
+                    <a href="science.html" class="glass-panel text-primary px-8 py-4 rounded-full font-bold text-lg transition-all border border-white smooth-hover-down hover:bg-white/80 inline-flex items-center justify-center">Watch Science Behind</a>
                 </div>
             </div>
-            <!-- Added animate-float to the relative wrapper -->
             <div class="relative animate-float">
                 <div class="absolute -top-12 -left-12 w-64 h-64 bg-primary-container/60 rounded-full blur-3xl"></div>
                 <div class="absolute -bottom-12 -right-12 w-64 h-64 bg-secondary-container/60 rounded-full blur-3xl"></div>
@@ -218,7 +227,7 @@
         </div>
     </section>
 
-    <!-- NEW SECTION 1: The Journey (from h1.jpg) -->
+    <!-- NEW SECTION 1: The Journey -->
     <section class="px-8 py-24 glass-panel my-12 mx-4 md:mx-12 rounded-[3rem] smooth-hover">
         <div class="max-w-7xl mx-auto text-center">
             <span class="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest uppercase text-primary glass-card rounded-full smooth-hover">A Lifelong Bond</span>
@@ -242,7 +251,7 @@
         </div>
     </section>
 
-    <!-- NEW SECTION 2: The Data and Gap (from data1.jpg) -->
+    <!-- NEW SECTION 2: The Data and Gap -->
     <section class="px-8 py-24 my-12">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
@@ -339,7 +348,6 @@
                 <div class="order-2 lg:order-1">
                     <div class="relative rounded-[2rem] overflow-hidden shadow-xl border border-white/80 bg-white/60 p-4 backdrop-blur smooth-hover-down">
                         <img alt="Handmade Concept Sheets for Hridaya" class="w-full h-auto rounded-[1.5rem]" src="4.jpg"/>
-
                     </div>
                 </div>
                 <div class="order-1 lg:order-2">
@@ -476,7 +484,7 @@
         </div>
     </section>
 
-    <!-- NEW SECTION 3: Future Wearable Layered Design (from future enhancements.jpg) -->
+    <!-- NEW SECTION 3: Future Wearable Layered Design -->
     <section class="px-8 py-24 glass-panel my-12 mx-4 md:mx-12 rounded-[3rem] smooth-hover">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-8">
@@ -563,7 +571,7 @@
         </div>
     </section>
 
-    <!-- 9. App Section (Updated to Bright Light Pastel) -->
+    <!-- 9. App Section -->
     <section class="px-8 py-24 bg-gradient-to-br from-secondary-container/50 to-tertiary-container/50 backdrop-blur-2xl text-on-surface overflow-hidden rounded-[3rem] mx-4 md:mx-12 border border-white/80 shadow-sm" id="app">
         <div class="max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-20 items-center">
@@ -623,27 +631,27 @@
     </section>
 
     <!-- 11. Team Members -->
-    <section class="py-24 px-6 glass-panel mx-4 md:mx-12 rounded-[3rem] mb-24 smooth-hover" id="team">
+    <section class="py-24 px-6 glass-panel mx-4 md:mx-12 rounded-[3rem] mb-12 smooth-hover" id="team">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl lg:text-5xl font-bold font-headline text-center mb-20 text-on-background">The Minds Behind Hridaya</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div class="text-center group">
                     <div class="relative mb-6 overflow-hidden rounded-[2rem] h-96 border-4 border-white/80 shadow-lg smooth-hover">
-                        <img alt="Team Photo" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" data-alt="Professional studio portrait of three diverse tech founders in minimalist white clothing with a soft gray background" src="Maitri.png"/>
+                        <img alt="Team Photo" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" src="Maitri.png"/>
                     </div>
                     <h3 class="text-2xl font-bold font-headline text-on-surface">Maitri P Patel</h3>
                     <p class="text-primary uppercase tracking-widest text-xs font-bold mt-2">Lead Visionary</p>
                 </div>
                 <div class="text-center group">
                     <div class="relative mb-6 overflow-hidden rounded-[2rem] h-96 border-4 border-white/80 shadow-lg smooth-hover-down">
-                        <img alt="Team Photo" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" data-alt="Professional studio portrait of three diverse tech founders in minimalist white clothing with a soft gray background" src="Krisha.png"/>
+                        <img alt="Team Photo" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" src="Krisha.png"/>
                     </div>
                     <h3 class="text-2xl font-bold font-headline text-on-surface">Krisha H Bavadiya</h3>
                     <p class="text-secondary uppercase tracking-widest text-xs font-bold mt-2">Design Director</p>
                 </div>
                 <div class="text-center group">
                     <div class="relative mb-6 overflow-hidden rounded-[2rem] h-96 border-4 border-white/80 shadow-lg smooth-hover">
-                        <img alt="Team Photo" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" data-alt="Professional studio portrait of three diverse tech founders in minimalist white clothing with a soft gray background" src="Pratham.png"/>
+                        <img alt="Team Photo" class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" src="Pratham.png"/>
                     </div>
                     <h3 class="text-2xl font-bold font-headline text-on-surface">Pratham P Rakholiya</h3>
                     <p class="text-tertiary uppercase tracking-widest text-xs font-bold mt-2">Chief Engineer</p>
@@ -652,18 +660,84 @@
         </div>
     </section>
 
-    <!-- 12. Final CTA -->
-    <section class="px-8 py-24 text-center pb-32">
-        <div class="max-w-4xl mx-auto glass-panel p-16 rounded-[3rem] shadow-xl relative overflow-hidden border border-white/80 smooth-hover">
-            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-tertiary to-secondary"></div>
-            <div class="relative z-10 space-y-8">
-                <h2 class="text-5xl lg:text-6xl font-extrabold font-headline text-editorial tracking-tight text-on-background">Ready for the <br/><span class="text-primary">Digital Cocoon?</span></h2>
-                <p class="text-xl text-on-surface-variant">Join 50,000+ parents who are already on the waitlist for the 2025 limited drop. Early adopters receive a custom-engraved hypoallergenic band.</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-                    <input class="px-8 py-4 rounded-full bg-white/80 border border-white text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/40 outline-none w-full sm:w-96 backdrop-blur font-body text-lg shadow-sm" placeholder="Enter your email" type="email"/>
-                    <button class="bg-primary text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-primary-dim transition-colors shadow-lg shadow-primary/20 hover:scale-105 active:scale-95">Secure My Spot</button>
+    <!-- NEW SECTION 11b: Developer Connect Banner -->
+    <section class="py-12 px-6 mx-4 md:mx-12 mb-24" id="developers">
+        <div class="max-w-7xl mx-auto bg-gradient-to-br from-primary via-primary-dim to-[#8A1C4A] rounded-[3rem] shadow-[0_20px_50px_rgba(172,45,94,0.25)] overflow-hidden relative border border-white/20 smooth-hover">
+            
+            <!-- Decorative Glows -->
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-black/20 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3 pointer-events-none"></div>
+
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10 p-8 md:p-12 lg:p-16">
+
+                <!-- Left: Framed Image -->
+                <div class="lg:col-span-5 flex justify-center lg:justify-start">
+                    <div class="relative w-full max-w-[340px] lg:max-w-md rounded-[2rem] overflow-hidden border-[6px] border-white/20 shadow-2xl smooth-hover-down group bg-white/10">
+                        <img src="developers.png" alt="The Developers" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                    </div>
                 </div>
-                <p class="mt-6 text-sm text-on-surface-variant/60 italic">Limited units available for the 2025 launch.</p>
+
+                <!-- Right: Text & Button -->
+                <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
+                    <div class="space-y-4">
+                        <span class="inline-block px-4 py-1.5 text-sm font-bold tracking-widest uppercase text-primary bg-white rounded-full shadow-sm">Developer Connect</span>
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline text-white leading-[1.1] tracking-tight">
+                            Feeling stuck? <br class="hidden md:block"/> Don't stress. <br class="hidden lg:block"/> <span class="text-secondary-container">Let's connect.</span>
+                        </h2>
+                    </div>
+
+                    <div class="relative mt-8">
+                        <!-- Arrow pointing to button -->
+                        <svg class="absolute -top-12 -left-16 w-20 h-20 text-white/80 hidden lg:block drop-shadow-md animate-pulse" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-15deg);">
+                            <path d="M30,80 C10,70 10,20 40,20 C70,20 70,70 40,75 C15,80 15,50 40,45 C55,42 70,45 85,55" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"/>
+                            <path d="M75,45 L87,56 L72,65" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                        </svg>
+
+                        <a href="tel:+917023188822" class="inline-flex items-center gap-3 sm:gap-4 bg-white text-primary px-6 sm:px-8 py-4 rounded-full font-bold text-base sm:text-lg uppercase tracking-wider hover:bg-surface-container transition-all shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-xl hover:-translate-y-1 group relative z-20">
+                            <span>Let's Connect</span>
+                            <div class="h-6 w-px bg-primary/20"></div>
+                            <span class="flex items-center gap-1.5 text-primary-dim group-hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-xl">call</span>
+                                7023188822
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Final CTA (Updated with Hanging Baby) -->
+    <section class="px-6 md:px-8 py-24 pb-32">
+        <div class="max-w-7xl mx-auto glass-panel p-8 lg:p-16 rounded-[3rem] shadow-xl relative overflow-hidden border border-white/80 smooth-hover">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-tertiary to-secondary"></div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
+                <!-- Left Side: Hanging Baby Image -->
+                <div class="relative h-[350px] lg:h-[450px] flex justify-center order-2 lg:order-1 overflow-visible pt-0">
+                    <div class="animate-swing flex flex-col items-center origin-top">
+                        <!-- Simulated String -->
+                        <div class="w-0.5 h-10 lg:h-16 bg-gradient-to-b from-gray-400 to-gray-300/20 shadow-sm rounded-full"></div>
+                        <!-- Uploaded hanging baby image -->
+                        <img src="baby.png" alt="Cool chilling baby" class="w-auto h-[360px] lg:h-[480px] object-contain baby-shadow -mt-2 no-cinematic smooth-hover" />
+                    </div>
+                </div>
+                
+                <!-- Right Side: Text & Form -->
+                <div class="space-y-8 text-left order-1 lg:order-2">
+                    <h2 class="text-4xl lg:text-5xl xl:text-6xl font-extrabold font-headline text-editorial tracking-tight text-on-background">
+                        Ready for the <br/><span class="text-primary">Digital Cocoon?</span>
+                    </h2>
+                    <p class="text-xl text-on-surface-variant font-body">
+                        Join 50,000+ parents who are already on the waitlist for the 2025 limited drop. Early adopters receive a custom-engraved hypoallergenic band.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mt-8 w-full">
+                        <input class="px-8 py-4 rounded-full bg-white/80 border border-white text-on-surface placeholder:text-on-surface-variant focus:ring-2 focus:ring-primary/40 outline-none w-full flex-grow backdrop-blur font-body text-lg shadow-sm" placeholder="Enter your email" type="email"/>
+                        <button class="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-dim transition-colors shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 whitespace-nowrap">Secure My Spot</button>
+                    </div>
+                    <p class="mt-4 text-sm text-on-surface-variant/60 italic">Limited units available for the 2025 launch.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -672,24 +746,18 @@
 
 <!-- Luminous Pastel Footer -->
 <footer class="relative w-full pt-32 pb-12 px-8 mt-12 overflow-hidden rounded-t-[4rem]">
-    <!-- Breathtaking Soft Pastel Gradient Background -->
     <div class="absolute inset-0 bg-gradient-to-br from-primary-container via-tertiary-container to-secondary-container z-0 opacity-80"></div>
-
-    <!-- Ambient Footer Glows -->
     <div class="absolute top-0 left-1/4 w-[40rem] h-[40rem] bg-white/50 rounded-full blur-[120px] mix-blend-overlay animate-pulse z-0"></div>
     <div class="absolute -bottom-20 -right-20 w-[40rem] h-[40rem] bg-white/60 rounded-full blur-[100px] z-0"></div>
-
-    <!-- Massive Background Watermark -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12vw] font-black font-headline text-primary/10 whitespace-nowrap z-0 pointer-events-none tracking-tighter select-none mix-blend-overlay">HRIDAYA</div>
 
     <div class="max-w-7xl mx-auto relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-16 mb-20">
-            <!-- Brand Column -->
             <div class="md:col-span-12 lg:col-span-5 flex flex-col justify-between">
                 <div>
-                    <!-- Increased logo size for better visibility -->
+                    <!-- Footer logo size increased -->
                     <a href="#" class="inline-block mb-6 smooth-hover origin-left">
-                        <img src="logo.png" alt="Hridaya Logo" class="h-20 md:h-24 lg:h-28 w-auto object-contain" onerror="this.onerror=null; this.src='https://placehold.co/400x120/ac2d5e/ffffff?text=HRIDAYA&font=Montserrat'; this.classList.add('rounded');" />
+                        <img src="logo.png" alt="Hridaya Logo" class="h-28 md:h-32 lg:h-36 w-auto object-contain transition-transform hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/400x120/ac2d5e/ffffff?text=HRIDAYA&font=Montserrat'; this.classList.add('rounded');" />
                     </a>
                     <p class="text-on-surface-variant max-w-sm text-lg font-body leading-relaxed mb-8">
                         A mother's touch, digitally reimagined. Protecting the next generation with empathetic, non-invasive technology.
@@ -708,7 +776,6 @@
                 </div>
             </div>
 
-            <!-- Links Columns inside a glass card for contrast -->
             <div class="md:col-span-12 lg:col-span-7 bg-white/60 backdrop-blur-xl border border-white/90 rounded-[3rem] p-12 smooth-hover shadow-lg">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-12">
                     <div>
@@ -753,27 +820,23 @@
     </div>
 </footer>
 
-<!-- Cinematic Animation Script -->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        // Select core elements to animate dynamically
         const elements = document.querySelectorAll(
             'section > div, h1, h2, h3, p:not(.text-sm):not(.italic), img, .group, ul > li, .glass-card'
         );
         
-        // Add reveal classes and staggers based on sequence
         elements.forEach((el, index) => {
             el.classList.add('cinematic-reveal');
             if (index % 3 === 1) el.classList.add('stagger-1');
             if (index % 3 === 2) el.classList.add('stagger-2');
         });
 
-        // Setup Intersection Observer to trigger animations on scroll
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    obs.unobserve(entry.target); // Run animation only once
+                    obs.unobserve(entry.target);
                 }
             });
         }, { 
@@ -783,8 +846,6 @@
 
         elements.forEach(el => observer.observe(el));
 
-        // --- Mobile Scroll-Hover Simulation ---
-        // Automatically triggers the hover effects as elements scroll into the center of the screen on mobile
         if (window.matchMedia("(max-width: 768px)").matches) {
             const mobileHoverObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -795,7 +856,6 @@
                     }
                 });
             }, {
-                // Triggers when the element reaches the middle 40% of the viewport
                 rootMargin: "-30% 0px -30% 0px",
                 threshold: 0
             });

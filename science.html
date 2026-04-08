@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The Science Behind | Hridaya</title>
+    <!-- Favicon -->
+    <link rel="icon" href="logo.png" type="image/png">
+    
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#ac2d5e", 
+                        "primary-dim": "#9c1f52",
+                        "on-primary": "#FFFFFF",
+                        "primary-container": "#fd6c9c",
+                        "on-primary-container": "#47001f",
+                        
+                        "secondary": "#8FB4C4", 
+                        "secondary-dim": "#7A9FB0",
+                        "on-secondary": "#FFFFFF",
+                        "secondary-container": "#E2F0F5",
+                        "on-secondary-container": "#2C4C5B",
+                        
+                        "tertiary": "#B59CCE", 
+                        "tertiary-dim": "#A187BC",
+                        "on-tertiary": "#FFFFFF",
+                        "tertiary-container": "#F0E6F7",
+                        "on-tertiary-container": "#4A3163",
+                        
+                        "background": "#FCF9FA", 
+                        "on-background": "#524C4D",
+                        "surface": "#FCF9FA",
+                        "on-surface": "#524C4D", 
+                        "surface-variant": "#F5EFF0",
+                        "on-surface-variant": "#857D7E", 
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Manrope', sans-serif; background-color: #FCF9FA; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        
+        .cinematic-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(-45deg, #FFF0F5, #F0F4FF, #F3E8FF, #EFFFF6, #FFF5E6);
+            background-size: 400% 400%;
+            animation: gradientFlow 20s ease-in-out infinite;
+            opacity: 0.9;
+        }
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.5) !important;
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px rgba(172, 45, 94, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+        }
+
+        .cinematic-reveal {
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform;
+        }
+        .cinematic-reveal.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .stagger-1 { transition-delay: 150ms; }
+        .stagger-2 { transition-delay: 300ms; }
+        
+        .smooth-hover {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            will-change: transform, box-shadow;
+        }
+        .smooth-hover:hover, .smooth-hover.is-hovered {
+            transform: translateY(-10px) scale(1.02) !important;
+            box-shadow: 0 25px 50px -12px rgba(172, 45, 94, 0.2) !important;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+
+<div class="cinematic-bg"></div>
+
+<header class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-2xl border-b border-white/60 shadow-sm shadow-primary/5">
+    <nav class="flex justify-between items-center px-8 py-3 max-w-7xl mx-auto">
+        <a href="index.html" class="flex items-center">
+            <img src="logo.png" alt="Hridaya Logo" class="h-16 sm:h-20 md:h-24 lg:h-20 w-auto object-contain transition-transform hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/300x80/ac2d5e/ffffff?text=HRIDAYA&font=Montserrat'; this.classList.add('rounded');" />
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+            <!-- Navigation links back to index.html sections -->
+            <a class="text-on-surface-variant font-medium font-headline hover:text-primary transition-colors duration-300" href="index.html">Product</a>
+            <a class="text-on-surface-variant font-medium font-headline hover:text-primary transition-colors duration-300" href="index.html#features">Features</a>
+            <a class="text-primary border-b-2 border-primary pb-1 font-headline font-semibold tracking-tight" href="#">Science</a>
+            <a class="text-on-surface-variant font-medium font-headline hover:text-primary transition-colors duration-300" href="index.html#team">Team</a>
+        </div>
+        <button class="bg-primary hover:bg-primary-dim text-white px-6 py-2.5 rounded-full font-headline font-semibold tracking-tight transition-all duration-300 hover:scale-105 shadow-lg">
+            Pre-order Now
+        </button>
+    </nav>
+</header>
+
+<main class="pt-32 pb-24">
+    <!-- Hero / Main Image Section -->
+    <section class="px-6 md:px-12 max-w-7xl mx-auto text-center mb-20">
+        <span class="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest uppercase text-primary glass-card rounded-full smooth-hover">Deep Dive</span>
+        <h1 class="text-5xl md:text-6xl font-extrabold font-headline mb-6 text-on-background tracking-tight">The Science Behind Hridaya</h1>
+        <p class="text-xl text-on-surface-variant max-w-3xl mx-auto mb-12 font-body">An intricate look at the layered systems powering our non-invasive, medical-grade monitoring wristband.</p>
+        
+        <div class="relative rounded-[3rem] overflow-hidden shadow-2xl border-[6px] border-white/90 bg-white/50 backdrop-blur-md smooth-hover">
+            <img src="science.png" alt="Detailed Schematic of Hridaya wristband" class="w-full h-auto object-contain" />
+        </div>
+    </section>
+
+    <!-- Component Breakdown Grid -->
+    <section class="px-6 md:px-12 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold font-headline text-center mb-12 text-on-background">System Breakdown</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Structure System Card -->
+            <div class="glass-panel p-8 rounded-[2rem] smooth-hover border-t-4 border-t-[#8B5CF6]">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-[#8B5CF6]/10 flex items-center justify-center text-[#8B5CF6]">
+                        <span class="material-symbols-outlined text-3xl">build</span>
+                    </div>
+                    <h3 class="text-2xl font-bold font-headline text-on-background">Structure <span class="text-sm text-on-surface-variant font-normal block uppercase tracking-widest mt-1">Mechanical System</span></h3>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-lg text-on-surface mb-2">Outer Fabric Strap</h4>
+                        <ul class="list-disc list-inside text-on-surface-variant space-y-1">
+                            <li>Provides secure and comfortable fit</li>
+                            <li>Breathable textile suitable for infant skin</li>
+                            <li>Integrated Velcro closure for adjustability</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-on-surface mb-2">Inner Silicone Padding</h4>
+                        <ul class="list-disc list-inside text-on-surface-variant space-y-1">
+                            <li>Soft cushioning layer between device and skin</li>
+                            <li>Maintains consistent sensor contact</li>
+                            <li>Prevents irritation and pressure points</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-on-surface mb-2">Protective Housing (ABS/PC)</h4>
+                        <ul class="list-disc list-inside text-on-surface-variant space-y-1">
+                            <li>Encases all electronic components securely</li>
+                            <li>Shock-resistant, lightweight with rounded edges</li>
+                            <li>Separates inner skin surface from exterior</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Electronics System Card -->
+            <div class="glass-panel p-8 rounded-[2rem] smooth-hover border-t-4 border-t-[#3B82F6]">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-[#3B82F6]/10 flex items-center justify-center text-[#3B82F6]">
+                        <span class="material-symbols-outlined text-3xl">memory</span>
+                    </div>
+                    <h3 class="text-2xl font-bold font-headline text-on-background">Electronics <span class="text-sm text-on-surface-variant font-normal block uppercase tracking-widest mt-1">Core System</span></h3>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-lg text-on-surface mb-2">Compact PCB</h4>
+                        <p class="text-on-surface-variant mb-2">The Central Control Unit of the device.</p>
+                        <ul class="list-disc list-inside text-on-surface-variant space-y-1">
+                            <li>Printed Circuit Board integrating all components</li>
+                            <li>Acts as the system's processing and communication hub</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-on-surface mb-2">Sub-Components</h4>
+                        <ul class="list-disc list-inside text-on-surface-variant space-y-1">
+                            <li><strong>ESP32 Microcontroller:</strong> Handles heavy processing and secure BLE (Bluetooth Low Energy) communication.</li>
+                            <li>Thin high-capacity battery unit attached via standard connector.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sensors System Card -->
+            <div class="glass-panel p-8 rounded-[2rem] smooth-hover border-t-4 border-t-[#10B981]">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-[#10B981]/10 flex items-center justify-center text-[#10B981]">
+                        <span class="material-symbols-outlined text-3xl">sensors</span>
+                    </div>
+                    <h3 class="text-2xl font-bold font-headline text-on-background">Sensors <span class="text-sm text-on-surface-variant font-normal block uppercase tracking-widest mt-1">Skin-Contact System</span></h3>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-lg text-on-surface mb-2">PPG Sensor</h4>
+                        <p class="text-on-surface-variant mb-2">Optical Heart Rate Sensor.</p>
+                        <ul class="list-disc list-inside text-on-surface-variant space-y-1">
+                            <li>Uses light-based detection to measure pulse</li>
+                            <li>Positioned directly on skin contact surface</li>
+                            <li>Requires stable and gentle pressure</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-on-surface mb-2">Skin Temperature Sensor</h4>
+                        <p class="text-on-surface-variant mb-2">Embedded Contact Sensor.</p>
+                        <ul class="list-disc list-inside text-on-surface-variant space-y-1">
+                            <li>Accurately measures surface temperature of the skin</li>
+                            <li>Positioned directly beside the PPG sensor array for combined reading</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Output System Card -->
+            <div class="glass-panel p-8 rounded-[2rem] smooth-hover border-t-4 border-t-[#F59E0B]">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-[#F59E0B]/10 flex items-center justify-center text-[#F59E0B]">
+                        <span class="material-symbols-outlined text-3xl">vibration</span>
+                    </div>
+                    <h3 class="text-2xl font-bold font-headline text-on-background">Output <span class="text-sm text-on-surface-variant font-normal block uppercase tracking-widest mt-1">Feedback System</span></h3>
+                </div>
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-lg text-on-surface mb-2">LED Indicator</h4>
+                        <p class="text-on-surface-variant mb-2">Visual Status Output.</p>
+                        <ul class="list-disc list-inside text-on-surface-variant space-y-1">
+                            <li>Displays device status (power, active connection)</li>
+                            <li>Positioned on the outer strap surface for clear visibility</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg text-on-surface mb-2">Vibration Motor</h4>
+                        <p class="text-on-surface-variant mb-2">Haptic Feedback Unit.</p>
+                        <ul class="list-disc list-inside text-on-surface-variant space-y-1">
+                            <li>Provides gentle tactile alerts to parents or subtle soothing patterns</li>
+                            <li>Positioned specifically away from sensors to prevent mechanical interference</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="relative w-full pt-32 pb-12 px-8 mt-12 overflow-hidden rounded-t-[4rem]">
+    <div class="absolute inset-0 bg-gradient-to-br from-primary-container via-tertiary-container to-secondary-container z-0 opacity-80"></div>
+    <div class="absolute top-0 left-1/4 w-[40rem] h-[40rem] bg-white/50 rounded-full blur-[120px] mix-blend-overlay animate-pulse z-0"></div>
+    <div class="absolute -bottom-20 -right-20 w-[40rem] h-[40rem] bg-white/60 rounded-full blur-[100px] z-0"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12vw] font-black font-headline text-primary/10 whitespace-nowrap z-0 pointer-events-none tracking-tighter select-none mix-blend-overlay">HRIDAYA</div>
+
+    <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-16 mb-20">
+            <div class="md:col-span-12 lg:col-span-5 flex flex-col justify-between">
+                <div>
+                    <!-- Footer logo size increased -->
+                    <a href="index.html" class="inline-block mb-6 smooth-hover origin-left">
+                        <img src="logo.png" alt="Hridaya Logo" class="h-28 md:h-32 lg:h-36 w-auto object-contain transition-transform hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/400x120/ac2d5e/ffffff?text=HRIDAYA&font=Montserrat'; this.classList.add('rounded');" />
+                    </a>
+                    <p class="text-on-surface-variant max-w-sm text-lg font-body leading-relaxed mb-8">
+                        A mother's touch, digitally reimagined. Protecting the next generation with empathetic, non-invasive technology.
+                    </p>
+                </div>
+                <div class="flex gap-4">
+                    <a class="w-14 h-14 rounded-full bg-white/50 border border-white/80 flex items-center justify-center hover:bg-primary transition-all duration-500 smooth-hover text-on-surface hover:text-white shadow-sm backdrop-blur-md" href="#">
+                        <span class="material-symbols-outlined">share</span>
+                    </a>
+                    <a class="w-14 h-14 rounded-full bg-white/50 border border-white/80 flex items-center justify-center hover:bg-primary transition-all duration-500 smooth-hover-down text-on-surface hover:text-white shadow-sm backdrop-blur-md" href="#">
+                        <span class="material-symbols-outlined">photo_camera</span>
+                    </a>
+                    <a class="w-14 h-14 rounded-full bg-white/50 border border-white/80 flex items-center justify-center hover:bg-primary transition-all duration-500 smooth-hover text-on-surface hover:text-white shadow-sm backdrop-blur-md" href="video1.mp4">
+                        <span class="material-symbols-outlined">play_arrow</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-12 lg:col-span-7 bg-white/60 backdrop-blur-xl border border-white/90 rounded-[3rem] p-12 smooth-hover shadow-lg">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-12">
+                    <div>
+                        <h4 class="font-bold font-headline mb-8 text-on-surface-variant uppercase tracking-widest text-sm">Product</h4>
+                        <ul class="space-y-5">
+                            <li><a class="text-on-surface hover:text-primary transition-colors font-body font-medium flex items-center gap-2 group" href="index.html#features"><span class="w-0 group-hover:w-2 h-[2px] bg-primary transition-all duration-300"></span> Features</a></li>
+                            <li><a class="text-on-surface hover:text-primary transition-colors font-body font-medium flex items-center gap-2 group" href="#"><span class="w-0 group-hover:w-2 h-[2px] bg-primary transition-all duration-300"></span> Science</a></li>
+                            <li><a class="text-on-surface hover:text-primary transition-colors font-body font-medium flex items-center gap-2 group" href="index.html#app"><span class="w-0 group-hover:w-2 h-[2px] bg-primary transition-all duration-300"></span> The App</a></li>
+                            <li><a class="text-on-surface hover:text-primary transition-colors font-body font-medium flex items-center gap-2 group" href="#"><span class="w-0 group-hover:w-2 h-[2px] bg-primary transition-all duration-300"></span> Pricing</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold font-headline mb-8 text-on-surface-variant uppercase tracking-widest text-sm">Company</h4>
+                        <ul class="space-y-5">
+                            <li><a class="text-on-surface hover:text-primary transition-colors font-body font-medium flex items-center gap-2 group" href="index.html#team"><span class="w-0 group-hover:w-2 h-[2px] bg-primary transition-all duration-300"></span> Our Team</a></li>
+                            <li><a class="text-on-surface hover:text-primary transition-colors font-body font-medium flex items-center gap-2 group" href="#"><span class="w-0 group-hover:w-2 h-[2px] bg-primary transition-all duration-300"></span> Careers <span class="bg-primary text-white text-[10px] px-2 py-0.5 rounded-full ml-1">We're hiring!</span></a></li>
+                            <li><a class="text-on-surface hover:text-primary transition-colors font-body font-medium flex items-center gap-2 group" href="#"><span class="w-0 group-hover:w-2 h-[2px] bg-primary transition-all duration-300"></span> Press Kit</a></li>
+                            <li><a class="text-on-surface hover:text-primary transition-colors font-body font-medium flex items-center gap-2 group" href="#"><span class="w-0 group-hover:w-2 h-[2px] bg-primary transition-all duration-300"></span> Contact Us</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="font-bold font-headline mb-8 text-on-surface-variant uppercase tracking-widest text-sm">Legal &amp; Support</h4>
+                        <ul class="space-y-5">
+                            <li><a class="text-on-surface hover:text-primary transition-colors font-body font-medium flex items-center gap-2 group" href="#"><span class="w-0 group-hover:w-2 h-[2px] bg-primary transition-all duration-300"></span> Privacy Policy</a></li>
+                            <li><a class="text-on-surface hover:text-primary transition-colors font-body font-medium flex items-center gap-2 group" href="#"><span class="w-0 group-hover:w-2 h-[2px] bg-primary transition-all duration-300"></span> Terms of Service</a></li>
+                            <li><a class="text-on-surface hover:text-primary transition-colors font-body font-medium flex items-center gap-2 group" href="#"><span class="w-0 group-hover:w-2 h-[2px] bg-primary transition-all duration-300"></span> Return Policy</a></li>
+                            <li><a class="text-on-surface hover:text-primary transition-colors font-body font-medium flex items-center gap-2 group" href="#"><span class="w-0 group-hover:w-2 h-[2px] bg-primary transition-all duration-300"></span> Help Center</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-white/60 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
+            <p class="text-on-surface-variant font-body text-sm font-medium">© 2026 Hridaya Baby Wellbeing. All rights reserved.</p>
+            <p class="text-on-surface-variant font-body text-sm font-medium flex items-center gap-1.5">
+                Designed with <span class="material-symbols-outlined text-primary text-sm animate-pulse" style="font-variation-settings: 'FILL' 1;">favorite</span> for families.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll('.glass-panel, h1, h2, h3, h4, p:not(.text-sm), img, ul > li');
+        
+        elements.forEach((el, index) => {
+            el.classList.add('cinematic-reveal');
+            if (index % 3 === 1) el.classList.add('stagger-1');
+            if (index % 3 === 2) el.classList.add('stagger-2');
+        });
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+
+        elements.forEach(el => observer.observe(el));
+    });
+</script>
+</body>
+</html>

@@ -163,6 +163,30 @@
             transform-origin: top center;
             will-change: transform;
         }
+
+        /* Right-to-Left Continuous Shimmer Effect for the CTA Button */
+        @keyframes shimmer-rtl {
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
+        }
+        
+        .btn-shimmer {
+            background: linear-gradient(110deg, #ffffff 30%, #ffd1df 50%, #ffffff 70%);
+            background-size: 300% 100%;
+            animation: shimmer-rtl 3s linear infinite;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: #111;
+        }
+
+        .btn-shimmer:hover {
+            /* Speeds up the shimmer and pops out on hover */
+            animation: shimmer-rtl 1.2s linear infinite;
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 20px 40px rgba(172, 45, 94, 0.35);
+            border-color: #ffd1df;
+            color: #ac2d5e;
+        }
+
         .baby-shadow {
             filter: drop-shadow(8px 15px 12px rgba(0, 0, 0, 0.4));
         }
@@ -191,7 +215,7 @@
         <div class="hidden md:flex items-center gap-8">
             <a class="text-primary border-b-2 border-primary pb-1 font-headline font-semibold tracking-tight" href="#">Product</a>
             <a class="text-on-surface-variant font-medium font-headline hover:text-primary transition-colors duration-300" href="#features">Features</a>
-            <a class="text-on-surface-variant font-medium font-headline hover:text-primary transition-colors duration-300" href="science.html">Science</a>
+            <a class="text-on-surface-variant font-medium font-headline hover:text-primary transition-colors duration-300" href="#science">Science</a>
             <a class="text-on-surface-variant font-medium font-headline hover:text-primary transition-colors duration-300" href="#team">Team</a>
             <a class="text-on-surface-variant font-medium font-headline hover:text-primary transition-colors duration-300" href="#app">App</a>
         </div>
@@ -660,48 +684,38 @@
         </div>
     </section>
 
-    <!-- NEW SECTION 11b: Developer Connect Banner -->
-    <section class="py-12 px-6 mx-4 md:mx-12 mb-24" id="developers">
-        <div class="max-w-7xl mx-auto bg-gradient-to-br from-primary via-primary-dim to-[#8A1C4A] rounded-[3rem] shadow-[0_20px_50px_rgba(172,45,94,0.25)] overflow-hidden relative border border-white/20 smooth-hover">
+    <!-- NEW SECTION 11b: Premium Agency Developer Connect -->
+    <section class="w-full mt-32 mb-24 bg-gradient-to-r from-primary via-primary to-primary-dim relative flex flex-col xl:flex-row items-center min-h-[300px] shadow-xl group/section" id="developers" style="overflow: visible;">
+        
+        <!-- Cut-out Image (Moved outside the centered wrapper to anchor flush to the far left edge of the section on Desktop) -->
+        <div class="w-full xl:w-auto flex justify-left xl:justify-start items-end order-2 xl:absolute xl:bottom-0 xl:left-(-7px) z-10 pointer-events-none mt-5 xl:mt-0">
+            <!-- Set to start exactly from left edge with no padding padding/margins -->
+            <img src="developers.png" alt="The Developers" class="h-[1px] md:h-[7px] lg:h-[335px] w-auto object-contain object-bottom drop-shadow-[0_15px_35px_rgba(0,0,0,0.4)] origin-bottom transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover/section:scale-[1.03] pointer-events-auto" />
+        </div>
+
+        <div class="max-w-[1350px] w-full mx-auto relative h-full flex flex-col xl:flex-row items-left justify-left xl:justify-end px-2 md:px-2 py-5 xl:py-5 order-1 xl:order-2 z-20 xl:min-h-[30px]">
             
-            <!-- Decorative Glows -->
-            <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-            <div class="absolute bottom-0 left-0 w-96 h-96 bg-black/20 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3 pointer-events-none"></div>
+            <!-- Content Wrapper -->
+            <!-- xl:justify-end pushes text to the right to leave room for the left-anchored image -->
+            <div class="w-full xl:w-auto flex flex-col xl:flex-row items-center justify-center gap-5 xl:gap-8">
+                
+                <!-- Text -->
+                <h2 class="text-[20px] md:text-[20px] lg:text-[32px] text-white font-extrabold font-headline leading-tight tracking-wide drop-shadow-sm whitespace-normal xl:whitespace-nowrap text-center">
+                    Feeling stuck? Don't stress. Let's connect.
+                </h2>
 
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10 p-8 md:p-12 lg:p-16">
+                <!-- Arrow & Continuous Shimmer Button -->
+                <div class="relative group block flex-shrink-0 cursor-pointer">
+                    
+                    <!-- Inserted Arrow Image -->
+                    <img src="arrow.png" alt="Arrow" class="absolute -top-16 xl:-top-24 -left-4 xl:-left-28 w-28 h-28 md:w-36 md:h-36 object-contain pointer-events-none drop-shadow-sm transition-transform duration-300 group-hover:-translate-y-1 group-hover:-translate-x-1" />
 
-                <!-- Left: Framed Image -->
-                <div class="lg:col-span-5 flex justify-center lg:justify-start">
-                    <div class="relative w-full max-w-[340px] lg:max-w-md rounded-[2rem] overflow-hidden border-[6px] border-white/20 shadow-2xl smooth-hover-down group bg-white/10">
-                        <img src="developers.png" alt="The Developers" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" />
-                    </div>
-                </div>
-
-                <!-- Right: Text & Button -->
-                <div class="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
-                    <div class="space-y-4">
-                        <span class="inline-block px-4 py-1.5 text-sm font-bold tracking-widest uppercase text-primary bg-white rounded-full shadow-sm">Developer Connect</span>
-                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-extrabold font-headline text-white leading-[1.1] tracking-tight">
-                            Feeling stuck? <br class="hidden md:block"/> Don't stress. <br class="hidden lg:block"/> <span class="text-secondary-container">Let's connect.</span>
-                        </h2>
-                    </div>
-
-                    <div class="relative mt-8">
-                        <!-- Arrow pointing to button -->
-                        <svg class="absolute -top-12 -left-16 w-20 h-20 text-white/80 hidden lg:block drop-shadow-md animate-pulse" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(-15deg);">
-                            <path d="M30,80 C10,70 10,20 40,20 C70,20 70,70 40,75 C15,80 15,50 40,45 C55,42 70,45 85,55" stroke="currentColor" stroke-width="3" stroke-linecap="round" fill="none"/>
-                            <path d="M75,45 L87,56 L72,65" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                        </svg>
-
-                        <a href="tel:+917023188822" class="inline-flex items-center gap-3 sm:gap-4 bg-white text-primary px-6 sm:px-8 py-4 rounded-full font-bold text-base sm:text-lg uppercase tracking-wider hover:bg-surface-container transition-all shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-xl hover:-translate-y-1 group relative z-20">
-                            <span>Let's Connect</span>
-                            <div class="h-6 w-px bg-primary/20"></div>
-                            <span class="flex items-center gap-1.5 text-primary-dim group-hover:text-primary transition-colors">
-                                <span class="material-symbols-outlined text-xl">call</span>
-                                7023188822
-                            </span>
-                        </a>
-                    </div>
+                    <!-- Continuous Shimmer Button (WhatsApp Link) -->
+                    <a href="https://wa.me/917023188822" target="_blank" rel="noopener noreferrer" class="btn-shimmer relative font-extrabold uppercase tracking-[0.1em] text-sm md:text-base px-10 md:px-12 py-4 md:py-5 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.15)] flex items-center justify-center min-w-[220px] overflow-hidden border border-white/50 block">
+                        <!-- Dark inner shadow for depth -->
+                        <div class="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-black/10 to-transparent pointer-events-none z-10 transition-opacity duration-500 group-hover:opacity-0"></div>
+                        <span class="relative z-30">LET'S CONNECT</span>
+                    </a>
                 </div>
 
             </div>
@@ -709,7 +723,11 @@
     </section>
 
     <!-- 12. Final CTA (Updated with Hanging Baby) -->
-    <section class="px-6 md:px-8 py-24 pb-32">
+    <section id="digital-cocoon-section" class="px-6 md:px-8 py-24 pb-32">
+        
+        <!-- Audio element for the baby voice -->
+        <audio id="baby-chill-audio" src="justchill.mp3" preload="auto"></audio>
+        
         <div class="max-w-7xl mx-auto glass-panel p-8 lg:p-16 rounded-[3rem] shadow-xl relative overflow-hidden border border-white/80 smooth-hover">
             <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-tertiary to-secondary"></div>
             
@@ -863,6 +881,39 @@
             document.querySelectorAll('.smooth-hover, .smooth-hover-down, img:not(.no-cinematic)').forEach(el => {
                 mobileHoverObserver.observe(el);
             });
+        }
+
+        // --- NEW: Audio Autoplay Observer for the Final CTA Section ---
+        const cocoonSection = document.getElementById('digital-cocoon-section');
+        const babyAudio = document.getElementById('baby-chill-audio');
+        let hasPlayedAudio = false;
+
+        if (cocoonSection && babyAudio) {
+            const audioObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Trigger audio when the section is at least 40% visible
+                    if (entry.isIntersecting && !hasPlayedAudio) {
+                        const playPromise = babyAudio.play();
+                        
+                        if (playPromise !== undefined) {
+                            playPromise.then(() => {
+                                hasPlayedAudio = true; // Ensure it only plays once per visit
+                            }).catch(error => {
+                                console.log("Autoplay blocked by browser. Waiting for user interaction.", error);
+                                // Fallback: If autoplay is blocked, wait for the user's next click anywhere on the page to play it
+                                document.body.addEventListener('click', () => {
+                                    if (!hasPlayedAudio) {
+                                        babyAudio.play();
+                                        hasPlayedAudio = true;
+                                    }
+                                }, { once: true });
+                            });
+                        }
+                    }
+                });
+            }, { threshold: 0.4 }); // 0.4 means 40% of the section must be visible to trigger
+
+            audioObserver.observe(cocoonSection);
         }
     });
 </script>
